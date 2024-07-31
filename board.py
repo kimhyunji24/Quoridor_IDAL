@@ -502,7 +502,7 @@ class Board:
             for j in range(self.cols):
                 if i==self.pawn[0][0] and j==self.pawn[0][1]: board_s = board_s + self.symbol[0]
                 elif i==self.pawn[1][0] and j==self.pawn[1][1]: board_s = board_s + self.symbol[1]
-                else: board_s = board_s + '*'
+                else: board_s = board_s + '■'
                 if j<self.cols-1:
                     if self.vwalls[i, j] == 1: board_s = board_s + ' ■ '
                     else: board_s = board_s + '    '
@@ -510,7 +510,7 @@ class Board:
             if i<self.rows-1:
                 for j in range(self.cols):
                     if self.hwalls[i, j] == 1:
-                        board_s = board_s + '# '
+                        board_s = board_s + '□ '
                     else:
                         board_s = board_s + '   '
                     if j<self.cols-1:
