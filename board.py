@@ -511,11 +511,11 @@ class Board:
             if i<self.rows-1:
                 for j in range(self.cols):
                     if self.hwalls[i, j] == 1:
-                        board_s = board_s + '# '
+                        board_s = board_s + ' #  '
                     else:
                         board_s = board_s + '  '
                     if j<self.cols-1:
-                        if self.points[i,j]==1: board_s = board_s + '# '
+                        if self.points[i,j]==1: board_s = board_s + ' #  '
                         else: board_s = board_s +'   '
                 board_s = board_s + '\n'
         print(board_s)
@@ -530,7 +530,7 @@ class Board:
                 if i == self.pawn[1][0]*2+1 and j == self.pawn[1][1]*2+1:
                     maze_s = maze_s + self.symbol[1] + ' '
                     continue
-                if self.maze[i,j]==1: maze_s = maze_s + '# '
+                if self.maze[i,j]==1: maze_s = maze_s + ' #  '
                 else: maze_s = maze_s + '   '
             maze_s = maze_s + '\n'
         print(maze_s)
