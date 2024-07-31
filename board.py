@@ -11,7 +11,7 @@ class Board:
         self.hwalls = np.zeros((self.rows-1, self.cols))
         self.vwalls = np.zeros((self.rows, self.cols-1))
         self.points = np.zeros((self.rows-1, self.cols-1))
-        self.symbol = ['♥', '♠']
+        self.symbol = ['A', 'B']
         self.pawn = [[0,4],[8,4]]
         self.nplayer = len(self.pawn)
         self.turn = 0
@@ -478,7 +478,7 @@ class Board:
         board_s=''
         for i in range(self.rows):
             for j in range(self.cols):
-                board_s = board_s + '□'
+                board_s = board_s + '~'
                 if j<self.cols-1:
                     if self.vwalls[i, j] == 1: board_s = board_s + ' | '
                     else: board_s = board_s + '   '
@@ -502,19 +502,19 @@ class Board:
             for j in range(self.cols):
                 if i==self.pawn[0][0] and j==self.pawn[0][1]: board_s = board_s + self.symbol[0]
                 elif i==self.pawn[1][0] and j==self.pawn[1][1]: board_s = board_s + self.symbol[1]
-                else: board_s = board_s + '□'
+                else: board_s = board_s + '~'
                 if j<self.cols-1:
-                    if self.vwalls[i, j] == 1: board_s = board_s + ' ■ '
+                    if self.vwalls[i, j] == 1: board_s = board_s + ' # '
                     else: board_s = board_s + '    '
                 else: board_s = board_s + '\n'
             if i<self.rows-1:
                 for j in range(self.cols):
                     if self.hwalls[i, j] == 1:
-                        board_s = board_s + '■ '
+                        board_s = board_s + '# '
                     else:
-                        board_s = board_s + '   '
+                        board_s = board_s + '  '
                     if j<self.cols-1:
-                        if self.points[i,j]==1: board_s = board_s + '■ '
+                        if self.points[i,j]==1: board_s = board_s + '# '
                         else: board_s = board_s +'   '
                 board_s = board_s + '\n'
         print(board_s)
@@ -529,7 +529,7 @@ class Board:
                 if i == self.pawn[1][0]*2+1 and j == self.pawn[1][1]*2+1:
                     maze_s = maze_s + self.symbol[1] + ' '
                     continue
-                if self.maze[i,j]==1: maze_s = maze_s + '■ '
+                if self.maze[i,j]==1: maze_s = maze_s + '# '
                 else: maze_s = maze_s + '   '
             maze_s = maze_s + '\n'
         print(maze_s)
